@@ -1,0 +1,41 @@
+$bgcolor_stock:honeydew;
+$underline_height:2px;
+$underline_width:70px;
+@mixin margin_align {
+    margin-left: 30px;
+}
+
+.carousel {
+    .carousel-caption {
+        top: 200px;
+    }
+    .container {
+        .card {
+            .card-body {
+                text-align: center;
+            }
+            .Instock {
+                background-color: $bgcolor_stock;
+                color: green;
+            }
+            .Outofstock {
+                color: red;
+                background-color: $bgcolor_stock;
+            }
+        }
+        .underline {
+            width: $underline_width;
+            height: $underline_height;
+            background-color: orangered;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    h3 {
+        @include margin_align;
+    }
+    .underline {
+        @include margin_align;
+    }
+}

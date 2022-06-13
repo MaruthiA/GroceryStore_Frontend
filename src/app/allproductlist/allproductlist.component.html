@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<body>
+    <!-- Title group  -->
+    <div class="title-group">
+        <h2 class="mat-h1">Search Products</h2>
+    </div>
+
+    <p *ngIf="productsData.length <= 0" class="no-data">
+        ALL PRODUCTS ARE CURRENTLY OUT OF STOCK
+    </p>
+
+    <div class="container" *ngIf="productsData.length > 0">
+        <mat-form-field appearance="standard">
+            <mat-label>Search products</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Enter product name" #input />
+        </mat-form-field>
+        <div class="mat-elevation-z8">
+            <table mat-table matSort [dataSource]="dataSource">
+                <ng-container matColumnDef="Image">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" style="width: 250px; ">
+                        <img width="100px" src="https://grocerystore--api.herokuapp.com/{{ element.productImagePath }}" />
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" style="width: 150px;">
+                        <a routerLink="/product-detail/{{ element._id }}">
+              {{ element.name }}
+            </a>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef>About product</th>
+                    <td mat-cell *matCellDef="let element" style="width: 200px;">
+                        {{ element.description }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Availability">
+                    <th mat-header-cell *matHeaderCellDef>Availabity</th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.stock" class="Instock">In stock</span >
+                        <span *ngIf="!element.stock" class="Outofstock">no stock</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="arrow">
+                        <b>Sort by Price</b>
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+                </ng-container>
+                <ng-container matColumnDef="x">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" class="btn-cell">
+                        <button>
+              <a routerLink="/product-detail/{{ element._id }}">
+                Add to Cart
+              </a>
+            </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            </table>
+
+        </div>
+        <mat-paginator [pageSizeOptions]="[12, 20, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+
+</body>
+<app-footer></app-footer>

@@ -1,0 +1,9 @@
+    $navbar_bgcolor:rgb(20, 182, 168);
+    .bg-light {
+        background: $navbar_bgcolor !important;
+        .navbar-nav {
+            li {
+                align-self: center;
+            }
+        }
+    }

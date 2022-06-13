@@ -1,0 +1,23 @@
+$bg_color:rgb(89, 179, 214);
+$myfont_family: 'Courier New',
+Courier,
+monospace;
+.container {
+    .card {
+        background-color: $bg_color;
+        .form-label-group {
+            padding: 10px;
+            font-family: $myfont_family;
+        }
+        .custom-control {
+            margin-left: 4%;
+            .custom-control-label {
+                font-family: $myfont_family;
+            }
+        }
+        .btn {
+            color: black;
+            font-family: $myfont_family;
+        }
+    }
+}

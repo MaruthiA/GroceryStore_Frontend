@@ -1,0 +1,28 @@
+$bgcolor_stock:honeydew;
+$underline_height:2px;
+$underline_width:70px;
+.container {
+    .row {
+        margin-top: 10%;
+    }
+    .underline {
+        width: $underline_width;
+        height: $underline_height;
+        background-color: orangered;
+    }
+    .cards_container {
+        padding-top: 20px;
+        .card {
+            .card-body {
+                .Instock {
+                    background-color: $bgcolor_stock;
+                    color: green;
+                }
+                .Outofstock {
+                    color: red;
+                    background-color: $bgcolor_stock;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+$bg_color:white;
+$shawdow_color:rgba(0, 0, 0, 0.2);
+@mixin logo_size($size, $radius) {
+    width: $size;
+    height: $size;
+    border-radius: $radius;
+}
+
+@mixin user_card-size($size) {
+    width: $size;
+    height: $size;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: $bg_color;
+    .container {
+        padding: 0 16px;
+        .user_card {
+            @include user_card-size(80%);
+            margin-top: 100px;
+            margin-bottom: auto;
+            background: $bg_color;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 $shawdow_color, 0 6px 20px 0 $shawdow_color;
+            -webkit-box-shadow: 0 4px 8px 0 $shawdow_color, 0 6px 20px 0 $shawdow_color;
+            -moz-box-shadow: 0 4px 8px 0 $shawdow_color, 0 6px 20px 0 $shawdow_color;
+            border-radius: 5px;
+            .brand_logo_container {
+                position: absolute;
+                @include logo_size(170px, 50%);
+                top: -75px;
+                background: #60a3bc;
+                padding: 10px;
+                text-align: center;
+                .brand_logo {
+                    @include logo_size(150px, 50%);
+                    border: 2px solid white;
+                }
+            }
+            .column {
+                float: left;
+                width: 33.3%;
+                margin-bottom: 16px;
+                padding: 0 8px;
+                .card {
+                    box-shadow: 0 4px 8px 0 $shawdow_color;
+                    margin: 8px;
+                    .card-text {
+                        color: rgba(0, 0, 0, 0.726);
+                        font-weight: bold;
+                    }
+                }
+            }
+            .form_container {
+                margin-top: 100px;
+            }
+        }
+    }
+    .container::after,
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    body {
+        padding-bottom: 150px;
+        min-width: 400px;
+        .container {
+            min-height: 700px;
+            .user_card {
+                height: 550px !important;
+                min-width: 400px;
+                .card {
+                    width: 200px;
+                }
+                .row {
+                    display: block;
+                    align-items: center;
+                    margin-top: 10%;
+                    .column {
+                        display: block;
+                        width: 200px;
+                        margin-left: 100px;
+                        align-self: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+    .foot {
+        padding-top: 150px;
+    }
+}

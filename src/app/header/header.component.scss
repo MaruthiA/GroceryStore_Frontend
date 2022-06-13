@@ -1,0 +1,25 @@
+$navbar_bgcolor:rgb(52, 177, 119);
+$dropdown_bordercolor:brown;
+#navigation {
+    .bg-light {
+        background: $navbar_bgcolor !important;
+        .navbar-nav {
+            li {
+                align-self: center;
+            }
+            .dropdown-item {
+                border: 1px solid $dropdown_bordercolor;
+                border-radius: 5px;
+                &:hover {
+                    background-color: bisque;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dropdown-item {
+        border: none;
+    }
+}

@@ -1,0 +1,38 @@
+<app-header-admin></app-header-admin>
+
+<div class="container">
+    <div class="title-group">
+        <h1 class="mat-h1">Update Status</h1>
+    </div>
+
+
+    <div class="inner-wrapper">
+
+        <form *ngIf="ordersForm" [formGroup]="ordersForm" (ngSubmit)="updateOrder()" #resetordersForm="ngForm" novalidate>
+            <mat-card>
+                <div class="controlers-wrapper">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Id" formControlName="id" readonly />
+                    </mat-form-field>
+                    <!-- Name -->
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Amount" formControlName="amount" readonly />
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Status of order" formControlName="status" />
+                    </mat-form-field>
+                </div>
+            </mat-card>
+
+            <!-- Submit & Reset -->
+            <mat-card>
+                <div class="full-wrapper button-wrapper">
+                    <div class="button-wrapper">
+                        <button mat-flat-button color="warn">Update</button>
+                    </div>
+                </div>
+            </mat-card>
+        </form>
+    </div>
+</div>

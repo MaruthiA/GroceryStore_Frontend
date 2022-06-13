@@ -1,0 +1,29 @@
+$padding_size:20px;
+$margin_allign:10%;
+.container {
+    .title-group {
+        margin-left: $margin_allign;
+        padding: $padding_size;
+    }
+    .inner-wrapper {
+        display: inline-flex;
+        margin-left: $margin_allign;
+        form {
+            width: 100%;
+            .button-wrapper {
+                padding-left: $padding_size;
+                button {
+                    background-color: green;
+                    border-radius: 5px;
+                }
+            }
+            mat-form-field {
+                padding-left: 50px;
+                width: 100%;
+                input {
+                    width: 1000px;
+                }
+            }
+        }
+    }
+}

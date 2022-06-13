@@ -1,0 +1,91 @@
+$border_style:none;
+$padding:100px;
+$btn_color:green;
+$bgcolor_stock:honeydew;
+$myfont_family:Georgia,
+'Times New Roman',
+Times,
+serif;
+$header_bgcolor:#2980b9;
+$padding_size:15px;
+@mixin container_elements {
+    overflow-x: auto;
+    button {
+        background-color: $btn_color;
+        border-radius: 4px;
+        &:hover {
+            background-color: rgb(16, 218, 16);
+        }
+        a {
+            color: black;
+        }
+    }
+}
+
+body {
+    margin-top: $padding;
+    height: auto;
+    padding-bottom: $padding;
+    .title-group {
+        margin-left: 5%;
+        .mat-h1 {
+            padding: $padding_size;
+            font-family: $myfont_family;
+            font-weight: bold;
+        }
+    }
+    .container {
+        table {
+            width: 100%;
+            background-color: rgb(230, 224, 217);
+            td.mat-cell {
+                padding-bottom: $padding;
+                border-bottom-style: $border_style;
+                padding: 10px;
+                min-width: 120px;
+                a {
+                    text-decoration: none;
+                }
+            }
+            th.mat-header-cell {
+                background-color: $header_bgcolor;
+                color: black;
+                font-size: 12px;
+                padding: 10px;
+                border-bottom-style: $border_style;
+            }
+            .Instock {
+                background-color: $bgcolor_stock;
+                color: green;
+            }
+            .Outofstock {
+                color: red;
+                background-color: $bgcolor_stock;
+            }
+        }
+        @include container_elements;
+        .mat-form-field {
+            font-size: 14px;
+            width: 100%;
+        }
+        .btn-cell {
+            min-width: 115px;
+        }
+    }
+}
+
+@media screen and (max-width:989px) {
+     ::ng-deep th.mat-header-cell {
+        min-width: 130px;
+    }
+    .container {
+        overflow-x: auto;
+        .mat-header-cell {
+            padding: $padding_size;
+        }
+        .mat-cell {
+            padding: $padding_size;
+            min-width: 150px;
+        }
+    }
+}

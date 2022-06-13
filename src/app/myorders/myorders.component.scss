@@ -1,0 +1,35 @@
+$header_bgcolor:#2980b9;
+$font_size:12px;
+$padding_size:10px;
+.container {
+    .title-group {
+        .mat-h1 {
+            margin-top: 100px;
+        }
+    }
+    table {
+        width: 100%;
+        .mat-header-cell {
+            background-color: $header_bgcolor;
+            color: black;
+            font-size: $font_size;
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (max-width:770px) {
+     ::ng-deep th.mat-header-cell {
+        min-width: 100px;
+    }
+    .container {
+        overflow-x: auto;
+        .mat-header-cell {
+            padding: $padding_size;
+        }
+        .mat-cell {
+            padding: $padding_size;
+            min-width: 100px;
+        }
+    }
+}

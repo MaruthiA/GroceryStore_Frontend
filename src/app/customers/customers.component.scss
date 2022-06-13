@@ -1,0 +1,18 @@
+$header_bgcolor:#2980b9;
+.container {
+    table {
+        width: 100%;
+    }
+    overflow-x: auto;
+    .container_table {
+        .mat-header-cell {
+            background-color: $header_bgcolor;
+            color: black;
+            font-size: 14px;
+            padding: 20px;
+        }
+        .mat-cell {
+            padding: 20px;
+        }
+    }
+}

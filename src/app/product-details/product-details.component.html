@@ -1,0 +1,100 @@
+<app-header></app-header>
+
+<body style="background-color: rgb(202, 202, 186);">
+    <div class="container">
+        <hr />
+        <div class="card">
+            <div class="row">
+                <aside class="col-sm-5 border-right">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap text-center">
+                            <div class="im">
+                                <img src="https://grocerystore--api.herokuapp.com/{{ products.productImagePath }}" style="height: 250px; width: 250px; padding: 70px 20px 30px 40px;" />
+                            </div>
+                        </div>
+                    </article>
+                </aside>
+                <aside class="col-sm-7 ">
+                    <article class="card-body p-5 ">
+                        <h3 class="title mb-3 ">{{ products.name }}</h3>
+
+                        <p class="price-detail-wrap ">
+                            <span class="price h3 text-warning ">
+                <span class="currency "></span
+                ><span class="num ">Rs. {{ products.price }}</span>
+                            </span>
+                        </p>
+                        <dl class="item-property ">
+                            <dt>Description</dt>
+                            <dd>
+                                <p>{{ products.description }}</p>
+                            </dd>
+                        </dl>
+                        <dl class="param param-feature "></dl>
+
+                        <hr />
+                        <div class="row ">
+                            <div class="col-sm-5 ">
+                                <dl class="param param-inline ">
+                                    <dt>Quantity:</dt>
+                                    <dd>
+                                        <select #ingre_qty class="form-control form-control-sm " style="width:70px; ">
+                      <option> 1 </option>
+                      <option> 2 </option>
+                      <option> 3 </option>
+                      <option> 4 </option>
+                      <option> 5 </option>
+                      <option> 6 </option>
+                      <option> 7 </option>
+                      <option> 8 </option>
+                      <option> 9 </option>
+                      <option> 10 </option>
+                    </select>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <button *ngIf="products.stock" (click)="addTocart()" class="btn btn-lg btn-outline-primary text-uppercase ">
+              Add to cart
+            </button>
+                        <button *ngIf="!products.stock" class="btn btn-lg btn-outline-primary text-uppercase ">
+              OUT OF STOCK
+            </button>
+                    </article>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <br /><br /><br />
+
+    <div class="container mt-5 " style="background-color: beige; height: auto; padding-bottom: 30px; ">
+        <div class="row ">
+            <div class="col-6 col-lg-4 col-md-4 col-sm-4 font-weight-bolder ">
+                Similar Products
+            </div>
+        </div>
+        <div class="row" id="ex">
+            <div class="col-md-3 " *ngFor="let i of similarproducts" id="similarcontainer">
+                <div class="card " style="margin-top: 10px; " id="similarcard">
+                    <img src="https://grocerystore--api.herokuapp.com/{{ i.productImagePath }} " style="width: 155px; height: 158px; " alt="product_img " class="card-img-top " />
+                    <div class="card-body " style="text-align:center ; ">
+                        <a href="/product-detail/{{ i._id }} ">
+                            <h5>{{ i.name }}</h5>
+
+                            <h6>Price : {{ i.price }} Rs.</h6>
+                        </a>
+                        <div>
+                            {{ i.description | slice: 0:20 }}
+                            <span *ngIf="i.description.length > 20">...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<app-footer></app-footer>
